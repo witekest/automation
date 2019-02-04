@@ -29,6 +29,8 @@ export nodenumber=2
 
 case "$1" in
   pre)
+    # workaround: remove everything but eth0
+    rm /etc/sysconfig/network/ifcfg-eth[1-9]*
     # SLES repos
     zypper ar http://provo-clouddata.cloud.suse.de/repos/x86_64/SLES12-${SP}Pool/ SLES12-${SP}Pool
     zypper ar http://provo-clouddata.cloud.suse.de/repos/x86_64/SLES12-${SP}Updates/ SLES12-${SP}Updates
