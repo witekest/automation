@@ -2150,6 +2150,7 @@ function enable_ssl_generic
     esac
     local certfile=$(proposal_get_value $service default "$a['ssl']['certfile']")
     local keyfile=$(proposal_get_value $service default "$a['ssl']['keyfile']")
+    $p "$a['ssl']['ca_certs']" "'/etc/ssl/ca-bundle.pem'"
     setup_trusted_cert $certfile $keyfile
 }
 
